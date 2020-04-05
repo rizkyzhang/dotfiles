@@ -1,6 +1,7 @@
 source ~/.aliases.zsh
 
-export VISUAL=nvim
+export PATH="$HOME/bin:$HOME/.zinit/polaris/bin:/data/data/com.termux/files/usr/bin:/data/data/com.termux/files/usr/bin/applets"
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 ### Added by Zinit's installer
