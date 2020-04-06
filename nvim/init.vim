@@ -13,9 +13,6 @@ set autoread
 " Yank and paste with the system clipboard
 set clipboard=unnamed
 
-" Better display for messages
-" set cmdheight=2
-
 " Folding
 let g:javaScript_fold=1
 set foldmethod=syntax
@@ -45,27 +42,8 @@ set shortmess+=c
 " Enable horizontal scroll
 set sidescroll=1
 
-" always show signcolumns
-" set signcolumn=yes
-
-" You will have bad experience for diagnostic messages when it's default 4000
-" set updatetime=300
-
-" Set height of an active window in split mode to 30
+" Set the height of active window in split mode
 set winheight=30 
-
-
-
-
-
-" ---------- Fix ----------
-
-" Fix CSS properties highlighting problem
-" augroup VimCSS3Syntax
-  " autocmd!
-
-  " autocmd FileType css setlocal iskeyword+=-
-" augroup END
 
 
 
