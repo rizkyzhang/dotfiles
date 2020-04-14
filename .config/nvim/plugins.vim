@@ -7,7 +7,6 @@ Plug 'matze/vim-move'
 Plug 'sainnhe/gruvbox-material'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
-Plug 'unblevable/quick-scope'
 
 call plug#end()
 
