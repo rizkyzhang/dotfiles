@@ -1,7 +1,7 @@
 # Config
 alias ali='nvim ~/.config/zsh/aliases.zsh'
 alias plug='nvim ~/.config/nvim/plugins.vim'
-alias re='source ~/.config/zsh/.zshrc'
+alias res='source ~/.config/zsh/.zshrc'
 alias vimrc='nvim ~/.config/nvim/init.vim'
 alias zshenv='nvim ~/.zshenv'
 alias zshrc='nvim ~/.config/zsh/.zshrc'
@@ -21,6 +21,7 @@ alias gs='git status'
 alias b='cd ..'
 alias la='ls -a'
 alias ll='ls -ahl'
+alias rm='rm -ri'
 
 # Packages
 alias pla='for pkg in $(apt-cache pkgnames | sort); do printf "$pkg - $(apt-cache show $pkg | grep -m 1 "Description:"  | cut -c 14-)\n"; done'
@@ -43,4 +44,5 @@ alias cow='covid19-cli world'
 alias br='termux-brightness'
 alias cl='clear'
 alias ro='unset LD_PRELOAD && export LD_PRELOAD=$PREFIX/lib/libtermux-exec.so && termux-chroot'
+alias ret='termux-reload-settings'
 
