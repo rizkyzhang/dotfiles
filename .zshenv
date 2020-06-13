@@ -1,6 +1,6 @@
 # PATH config
 typeset -U PATH path
-path=("$HOME/.local/bin" "$path[@]")
+path=("$HOME/bin" "$path[@]")
 export PATH
 
 # FPATH config
