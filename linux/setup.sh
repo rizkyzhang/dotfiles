@@ -46,19 +46,19 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo docker run hello-world
 sudo usermod -aG docker $USER
-docker network create personal
+sudo docker network create personal
 
 # Selfhost setup
 ## Dockge
 sudo mkdir -p /opt/stacks /opt/dockge
 cd /opt/dockge
 sudo cp ~/dotfiles/linux/dockge-compose.yaml compose.yaml
-docker compose up -d
+sudo docker compose up -d
 ## Nginx Proxy Manager
 sudo mkdir -p /opt/stacks/npm
 cd /opt/stacks/npm
 sudo cp ~/dotfiles/linux/npm-compose.yaml compose.yaml
-docker compose up -d
+sudo docker compose up -d
 
 # Firewall
 sudo ufw enable
