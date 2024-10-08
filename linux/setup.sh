@@ -52,12 +52,13 @@ docker network create personal
 ## Dockge
 sudo mkdir -p /opt/stacks /opt/dockge
 cd /opt/dockge
-sudo curl https://raw.githubusercontent.com/louislam/dockge/master/compose.yaml --output compose.yaml
-docker compose -f ~/dotfiles/linux/dockge-compose.yaml up -d
+sudo cp ~/dotfiles/linux/dockge-compose.yaml compose.yaml
+docker compose up -d
 ## Nginx Proxy Manager
 sudo mkdir -p /opt/stacks/npm
 cd /opt/stacks/npm
-docker compose -f ~/dotfiles/linux/npm-compose.yaml up -d
+sudo cp ~/dotfiles/linux/npm-compose.yaml compose.yaml
+docker compose up -d
 
 # Firewall
 sudo ufw enable
