@@ -1,0 +1,21 @@
+services:
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: npm
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Jakarta
+    volumes:
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
+    ports:
+      - 80:80 # Public HTTP Port
+      - 443:443 # Public HTTPS Port
+      - 7000:81 # Admin Web Port
+    networks:
+      - personal
+networks:
+  personal:
+    name: personal
+    external: true
+
