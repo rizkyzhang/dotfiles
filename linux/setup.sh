@@ -18,14 +18,14 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 wget https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_amd64.deb && sudo apt install ./bat-musl_0.24.0_amd64.deb
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage && mv nvim.appimage bin
+wget https://github.com/neovim/neovim/releases/download/v0.10.2/nvim.appimage && mv nvim.appimage bin
 sudo apt install exa
 
 # Code
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-wget https://go.dev/dl/go1.22.0.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.23.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.3.linux-amd64.tar.gz
 source ~/.zshenv
 source ~/.config/zsh/.zshrc
 nvm install --lts && npm i -g pnpm yarn
