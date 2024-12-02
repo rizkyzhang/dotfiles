@@ -1,11 +1,5 @@
 #!/bin/zsh
 
-# Secure SSH
-sudo sed -i 's/#Port 22/Port 4957/' /etc/ssh/sshd_config
-sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
-sudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-sudo systemctl restart ssh
-
 # Copy dotfiles
 cd
 cp -R ~/dotfiles/linux/. .
@@ -22,15 +16,13 @@ sudo mkdir -p /etc/apt/keyrings
 wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
 sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
-sudo apt update
 sudo apt install -y eza
-wget https://github.com/neovim/neovim/releases/download/v0.10.2/nvim.appimage && mv nvim.appimage bin
+sudo snap install nvim --classic
 
 # Code
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-wget https://go.dev/dl/go1.23.3.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1.23.3.linux-amd64.tar.gz
+sudo snap install go --classic
 source ~/.zshenv
 source ~/.config/zsh/.zshrc
 nvm install --lts && npm i -g pnpm yarn
@@ -60,11 +52,10 @@ cd /opt/dockge
 sudo cp ~/dotfiles/linux/dockge-compose.yaml compose.yaml
 sudo docker compose up -d
 ## Nginx Proxy Manager
+sudo systemctl stop mariadb
+sudo systemctl stop nginx
+sudo systemctl stop php8.3-fpm
 sudo mkdir -p /opt/stacks/npm
 cd /opt/stacks/npm
 sudo cp ~/dotfiles/linux/npm-compose.yaml compose.yaml
 sudo docker compose up -d
-
-# Firewall
-sudo ufw enable
-sudo ufw allow 4957/tcp
